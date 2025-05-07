@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
 # preserve the user's existing setting
-if [ ! -z "${LHAPDF_DATA_PATH+x}" ]; then
-	export CONDA_BACKUP_LHAPDF_DATA_PATH="${LHAPDF_DATA_PATH}"
+if [ ! -z "${LHAPATH+x}" ]; then
+	export CONDA_BACKUP_LHAPATH="${LHAPATH}"
 fi
-
-if [ -z "${LHAPDF_DATA_PATH+x}" ]; then
-        export LHAPDF_DATA_PATH="${CONDA_PREFIX}/share/LHAPDF"
+if [ -z "${LHAPATH+x}" ]; then
+        export LHAPATH="${CONDA_PREFIX}/share/LHAPDF"
 fi
