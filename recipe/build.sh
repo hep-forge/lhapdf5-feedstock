@@ -6,7 +6,7 @@ cd build-scripts
 cmake $RECIPE_DIR/scripts
 cd ..
 
-./configure --prefix=$PREFIX --disable-python
+./configure --prefix=$PREFIX
 
 make -j$(nproc)
 make install
