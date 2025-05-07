@@ -21,19 +21,12 @@ requirements:
   build:
     - {{ compiler('cxx') }}
     - {{ compiler('c') }}
-    - python
-    - cython >=0.24
     - gnuconfig
     - make
     - cmake
     - automake
     - autoconf
     - libtool
-  host:
-    - python
-    - cython >=0.24
-  run:
-    - python
 
 about:
   home: "https://lhapdf.hepforge.org"
