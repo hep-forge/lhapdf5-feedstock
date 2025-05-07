@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 # reinstate the backup from outside the environment
-if [ ! -z "${CONDA_BACKUP_LHAPDF_DATA_PATH}" ]; then
-	export LHAPDF_DATA_PATH="${CONDA_BACKUP_LHAPDF_DATA_PATH}"
-	unset CONDA_BACKUP_LHAPDF_DATA_PATH
+if [ ! -z "${CONDA_BACKUP_LHAPATH}" ]; then
+	export LHAPATH="${CONDA_BACKUP_LHAPATH}"
+	unset CONDA_BACKUP_LHAPATH
 # no backup, just unset
 else
-	unset LHAPDF_DATA_PATH
+	unset LHAPATH
 fi
