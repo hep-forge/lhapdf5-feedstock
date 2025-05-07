@@ -21,6 +21,7 @@ requirements:
   build:
     - {{ compiler('cxx') }}
     - {{ compiler('c') }}
+    - {{ compiler('gfortran') }}
     - gnuconfig
     - make
     - cmake
