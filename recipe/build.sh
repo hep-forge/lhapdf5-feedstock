@@ -6,7 +6,7 @@ cd build-scripts
 cmake $RECIPE_DIR/scripts
 cd ..
 
-./configure --prefix=$PREFIX --disable-pyext FC=gfortran CC=gcc FCFLAGS="-O2 -std=legacy" CFLAGS="-O2"
+./configure --prefix=$PREFIX --disable-pyext FCFLAGS="-O2 -std=legacy" CFLAGS="-O2"
 
 make -j$(nproc)
 make install
