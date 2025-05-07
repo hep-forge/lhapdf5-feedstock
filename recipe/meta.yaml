@@ -1,5 +1,4 @@
 {% set versions = {
-    "6.5.4": "2443a4b32cc3b0597c8248bd6e25703ace9c91a7a253c5f60b1b5428ef9c869e",
     "5.9.1": "61fb9af0369b306ef364c09b6aa85f66a0b0bae32263debac881687f7b6c8dd7"
 } %}
 
@@ -9,7 +8,7 @@
 {% set version = version|string %}
 
 package:
-  name: {{ environ.get('ANACONDA_PACKAGE', "lhapdf")|string|lower }}
+  name: {{ environ.get('ANACONDA_PACKAGE', "lhapdf5")|string|lower }}
   version: {{ environ.get('ANACONDA_VERSION', version)|replace("-", ".") }}
 
 source:
