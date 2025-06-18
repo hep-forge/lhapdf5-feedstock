@@ -5,5 +5,5 @@ if [ ! -z "${LHAPATH+x}" ]; then
 	export CONDA_BACKUP_LHAPATH="${LHAPATH}"
 fi
 if [ -z "${LHAPATH+x}" ]; then
-        export LHAPATH="${CONDA_PREFIX}/share/LHAPDF"
+        export LHAPATH="${CONDA_PREFIX}/share/LHAPDF5"
 fi
