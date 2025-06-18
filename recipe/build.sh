@@ -17,7 +17,8 @@ mv $PREFIX/lib/libLHAPDF.a $PREFIX/lib/libLHAPDF5.a
 mv $PREFIX/lib/libLHAPDF.so $PREFIX/lib/libLHAPDF5.so
 
 git clone https://gitlab.com/hepcedar/lhapdf
-mv lhapdf/migration $PREFIX/share/lhapdf-migration
-find $PREFIX/share/lhapdf-migration -type f -exec sed -i 's/libLHAPDF\./libLHAPDF5\./g' {} +
+mv lhapdf/migration $PREFIX/share/lhapdf
+find $PREFIX/share/lhapdf -type f -exec sed -i 's/libLHAPDF\./libLHAPDF5\./g' {} +
+find $PREFIX/share/lhapdf -type f -exec sed -i 's/(__doc__)\()/g' {} +
 
 mv $PREFIX/share/lhapdf $PREFIX/share/lhapdf5
