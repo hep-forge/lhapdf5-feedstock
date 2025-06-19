@@ -6,7 +6,8 @@ cd build-scripts
 cmake $RECIPE_DIR/scripts
 cd ..
 
-./configure --prefix=$PREFIX --disable-pyext FCFLAGS="-O2 -std=legacy" CFLAGS="-O2"
+autoreconf -i
+./configure --prefix=$PREFIX FCFLAGS="-O2 -std=legacy" CFLAGS="-O2"
 
 make -j$(nproc)
 make install
@@ -16,9 +17,20 @@ mv $PREFIX/include/LHAPDF/LHAPDF.h $PREFIX/include/LHAPDF/LHAPDF5.h
 mv $PREFIX/lib/libLHAPDF.a $PREFIX/lib/libLHAPDF5.a
 mv $PREFIX/lib/libLHAPDF.so $PREFIX/lib/libLHAPDF5.so
 
-git clone https://gitlab.com/hepcedar/lhapdf
-mv lhapdf/migration $PREFIX/share/lhapdf
-find $PREFIX/share/lhapdf -type f -exec sed -i 's/libLHAPDF\./libLHAPDF5\./g' {} +
-find $PREFIX/share/lhapdf -type f -exec sed -i 's/(__doc__)\()/g' {} +
+# check python2.x is used — if so, install the migration scripts
+if command -v python >/dev/null 2>&1 && \
+   [ "$(python -c 'import sys; sys.stdout.write(str(sys.version_info[0]))')" -eq 2 ]; then
 
-mv $PREFIX/share/lhapdf $PREFIX/share/lhapdf5
+  git clone https://gitlab.com/hepcedar/lhapdf
+  cp -R lhapdf/migration $PREFIX/share/lhapdf
+  find lhapdf/migration -type f \
+       -exec sed -i 's/libLHAPDF\./libLHAPDF5\./g' {} +
+  find lhapdf/migration -type f \
+       -exec sed -i 's/usage=\(__doc__\)//g' {} +
+  cp lhapdf/migration/cmpplotv5v6 $PREFIX/bin
+  cp lhapdf/migration/creategrids  $PREFIX/bin
+  cp lhapdf/migration/lhapdf5to6   $PREFIX/bin
+  cp lhapdf/migration/tomigrate    $PREFIX/bin
+  cp lhapdf/migration/cmpv5v6      $PREFIX/bin
+  cp lhapdf/migration/plotv5v6     $PREFIX/bin
+fi
