@@ -6,7 +6,7 @@ cd build-scripts
 cmake $RECIPE_DIR/scripts
 cd ..
 
-#autoreconf -i
+autoreconf -i
 ./configure --prefix=$PREFIX FCFLAGS="-O2 -std=legacy" CFLAGS="-O2"
 
 make -j$(nproc)
