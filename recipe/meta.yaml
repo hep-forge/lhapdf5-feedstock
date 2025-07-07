@@ -22,6 +22,7 @@ requirements:
     - {{ compiler('cxx') }}
     - {{ compiler('c') }}
     - {{ compiler('gfortran') }}
+    - python
     - gnuconfig
     - make
     - cmake
