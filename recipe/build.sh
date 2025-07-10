@@ -13,6 +13,7 @@ make -j$(nproc)
 make install
 
 mv $PREFIX/bin/lhapdf-config $PREFIX/bin/lhapdf5-config
+mv $PREFIX/bin/lhapdf-getdata $PREFIX/bin/lhapdf5-getdata
 mv $PREFIX/include/LHAPDF/LHAPDF.h $PREFIX/include/LHAPDF/LHAPDF5.h
 mv $PREFIX/lib/libLHAPDF.a $PREFIX/lib/libLHAPDF5.a
 mv $PREFIX/lib/libLHAPDF.so $PREFIX/lib/libLHAPDF5.so
