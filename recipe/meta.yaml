@@ -23,8 +23,8 @@ requirements:
   build:
     - {{ compiler('cxx') }}
     - {{ compiler('c') }}
-    - {{ compiler('gfortran') }}
-    - python
+    - {{ compiler('gfortran') }}=8
+    - python<3
     - gnuconfig
     - make
     - cmake
