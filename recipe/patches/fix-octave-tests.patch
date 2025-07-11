@@ -1,0 +1,25 @@
+From 612e718d2cb079fdab8dc5bacf978c7afc7f060e Mon Sep 17 00:00:00 2001
+From: Marco Meyer-Conde <marco@tcu.ac.jp>
+Date: Thu, 19 Jun 2025 22:30:46 +0900
+Subject: [PATCH] fix octave tests
+
+---
+ octave/Makefile.am | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/octave/Makefile.am b/octave/Makefile.am
+index 7ef2eac..bc2d1e6 100644
+--- a/octave/Makefile.am
++++ b/octave/Makefile.am
+@@ -1,9 +1,6 @@
+-EXTRA_DIST = lhapdf-octave-example1.m wrapoctave.cc
+-
+ pkgdata_DATA = lhapdf.oct
+ 
+ lhapdf.oct: wrapoctave.cc
+ 	$(MKOCTFILE) -I$(top_srcdir)/include -v -g -o lhapdf.oct wrapoctave.cc -L$(top_builddir)/lib -L$(top_builddir)/lib/.libs -lLHAPDF
+ 
+ TESTS_ENVIRONMENT = LHAPATH=$(top_srcdir)/PDFsets $(OCTAVE)
+-TESTS = $(srcdir)/lhapdf-octave-example1.m
+-- 
+2.47.0
